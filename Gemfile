@@ -44,6 +44,8 @@ group :test do
   end
 end
 
+gem "chef_licensing", path: "/Users/nmathur/chef/chef-licensing/components/ruby"
+
 group :deploy do
   gem "inquirer"
 end
