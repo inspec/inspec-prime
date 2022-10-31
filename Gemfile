@@ -44,8 +44,8 @@ group :test do
   end
 end
 
-# TBD remove path after gem release
-gem "chef_licensing", path: "/Users/nmathur/chef/chef-licensing/components/ruby"
+# TODO remove path after gem release
+gem "chef_licensing", path: "../chef-licensing/components/ruby"
 
 group :deploy do
   gem "inquirer"
