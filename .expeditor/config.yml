@@ -1,0 +1,64 @@
+# Documentation available at https://expeditor.chef.io/docs/getting-started/
+---
+
+product_key: inspec
+
+pipelines:
+ - verify:
+    description: Pull Request validation tests
+    env:
+     - LANG: "C.UTF-8"
+     - SLOW: 1
+     - NO_AWS: 1
+     - MT_CPU: 5
+
+github:
+ delete_branch_on_merge: true
+ version_tag_format: v{{version}}
+ minor_bump_labels:
+   - "Expeditor: Bump Minor Version"
+ # allow bumping the major release via label
+ major_bump_labels:
+   - "Expeditor: Bump Major Version"
+
+changelog:
+ categories:
+  - "Type: New Resource": "New Resources"
+  - "Type: New Feature": "New Features"
+  - "Type: Enhancement": "Enhancements"
+  - "Type: Bug": "Bug Fixes"
+
+subscriptions:
+  - workload: pull_request_merged:{{github_repo}}:{{release_branch}}:*
+    actions:
+     - built_in:bump_version:
+        ignore_labels:
+         - "Expeditor: Skip All"
+         - "Expeditor: Skip Version Bump"
+        only_if_modified:
+         - .expeditor/*
+         - docs-chef-io/*
+         - etc/*
+         - habitat/*
+         - inspec-bin/*
+         - lib/*
+         - omnibus/*
+         - support/*
+         - tasks/*
+         - test/*
+         - Gemfile*
+         - LICENSE
+         - "*.gemspec"
+         - "*.md"
+     - bash:.expeditor/update_version.sh:
+        only_if: built_in:bump_version
+  - workload: pull_request_opened:{{github_repo}}:{{release_branch}}:*
+    actions:
+     - post_github_comment:.expeditor/templates/pull_request.mustache:
+        ignore_team_members:
+         - inspec/owners
+         - inspec/inspec-core-team
+     - built_in:github_auto_assign_author:
+        only_if_team_member:
+         - inspec/owners
+         - inspec/inspec-core-team
