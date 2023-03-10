@@ -12,6 +12,9 @@ pipelines:
      - NO_AWS: 1
      - MT_CPU: 5
 
+slack:
+ notify_channel: inspec-notify
+
 github:
  delete_branch_on_merge: true
  version_tag_format: v{{version}}
@@ -20,6 +23,12 @@ github:
  # allow bumping the major release via label
  major_bump_labels:
    - "Expeditor: Bump Major Version"
+
+release_branches:
+  - inspec-6:
+     version_constraint: 6.*
+  - main:
+      version_constraint: 5.*
 
 changelog:
  categories:
@@ -52,6 +61,10 @@ subscriptions:
          - "*.md"
      - bash:.expeditor/update_version.sh:
         only_if: built_in:bump_version
+     - built_in:update_changelog:
+        ignore_labels:
+         - "Expeditor: Skip All"
+         - "Expeditor: Skip Changelog"
   - workload: pull_request_opened:{{github_repo}}:{{release_branch}}:*
     actions:
      - post_github_comment:.expeditor/templates/pull_request.mustache:
