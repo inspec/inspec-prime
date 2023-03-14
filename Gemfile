@@ -69,4 +69,6 @@ source "https://artifactory-internal.ps.chef.co/artifactory/api/gems/omnibus-gem
   gem "chef-licensing"
 end
 
-gem "chef_licensing", path: "../../chef-licensing/components/ruby/" # Temporaray needs to be removed once we have the Chef-Licensing gem released.
+#gem "chef_licensing", path: "../../chef-licensing/components/ruby/" # Temporaray needs to be removed once we have the Chef-Licensing gem released.
+
+gem "chef_licensing", git: "git@github.com:chef/chef-licensing.git", glob: 'components/ruby/*.gemspec', branch: 'main'
