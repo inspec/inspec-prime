@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "--- adding github.com to known_hosts"
+mkdir -p ~/.ssh
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+
 echo "--- dependencies"
 . .expeditor/buildkite/cache_support.sh
 install_cache_deps sudo
