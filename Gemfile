@@ -64,3 +64,6 @@ group :kitchen do
   gem "kitchen-dokken", ">= 2.11"
   gem "git"
 end
+
+# This is a temporary dependency to allow us to use the un-released chef-licensing gem
+gem "chef_licensing", git: "git@github.com:chef/chef-licensing.git", glob: 'components/ruby/*.gemspec'
