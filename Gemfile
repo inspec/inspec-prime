@@ -44,8 +44,8 @@ group :test do
   end
 end
 
-# TODO remove path after gem release
-gem "chef_licensing", path: "../chef-licensing/components/ruby"
+# This is a temporary dependency to allow us to use the un-released chef-licensing gem
+gem "chef_licensing", git: "git@github.com:chef/chef-licensing.git", glob: "components/ruby/*.gemspec"
 
 group :deploy do
   gem "inquirer"
