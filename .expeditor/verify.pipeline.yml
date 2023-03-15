@@ -26,8 +26,8 @@ steps:
       executor:
         docker:
           image: ruby:2.7
-      accounts:
-        - github/chef
+      # accounts:
+      #   - github/chef
 
   - label: run-tests-ruby-3.0
     command:
