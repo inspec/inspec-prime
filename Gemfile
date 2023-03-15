@@ -66,4 +66,4 @@ group :kitchen do
 end
 
 # This is a temporary dependency to allow us to use the un-released chef-licensing gem
-gem "chef_licensing", git: "git@github.com:chef/chef-licensing.git", glob: 'components/ruby/*.gemspec'
+gem "chef_licensing", git: "https://github.com/chef/chef-licensing.git", glob: 'components/ruby/*.gemspec'
