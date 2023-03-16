@@ -6,9 +6,7 @@ install_cache_deps sudo
 
 # This dummy is a test to see if we can get the secrets from the github secrets
 echo "--- adding values to environment variables from secrets"
-# export DUMMY_SECRET=secrets.DUMMY_SECRET
-# echo "displaying DUMMY_SECRET: $DUMMY_SECRET"
-echo "displaying DUMMY_SECRET: ${{ secrets.DUMMY_SECRET }}"
+echo "displaying DUMMY_SECRET: ${{ secrets.MY_SECRET }}"
 
 echo "--- adding chef license server api key to environment variables from secrets"
 # export CHEF_LICENSE_SERVER_API_KEY="${{ secrets.CHEF_LICENSE_SERVER_API_KEY }}"
