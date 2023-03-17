@@ -4,14 +4,27 @@ echo "--- dependencies"
 . .expeditor/buildkite/cache_support.sh
 install_cache_deps sudo
 
-echo "--- checking system pwd"
-pwd
+# echo "install github cli if not present"
+# if ! command -v gh; then
+#   echo "--- installing github cli"
+#   sudo apt-get update
+#   sudo apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl gnupg lsb-release
+#   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+#   echo "deb [arch=amd64 signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+#   sudo apt-get update
+#   sudo apt-get install -y --no-install-recommends gh
+# fi
 
-echo "--- checking system env"
-env
+# echo "--- setting up github cli"
+# gh config set prompt disabled
+# gh config set git_protocol ssh
 
-echo "--- checking files present in current directory"
-ls -al
+# echo "--- list secrets"
+# gh secret list -a "actions"
+
+
+echo "--- check if git is installed and configured"
+git config --list
 
 
 echo "--- setting up user"
