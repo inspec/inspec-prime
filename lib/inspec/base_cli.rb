@@ -40,14 +40,14 @@ module Inspec
 
     def self.fetch_and_persist_license
       allowed_commands = ["-h", "--help", "help", "-v", "--version", "version"]
-
-      require "chef_licensing/license_key_fetcher"
+      require "chef_licensing"
       begin
         if (allowed_commands & ARGV.map(&:downcase)).empty? && !ARGV.empty?
-          chef_licensing_output = ChefLicensing::LicenseKeyFetcher.fetch_and_persist
+          configure_chef_licensing
+          license_keys = ChefLicensing.license_keys
 
           # Only if EULA acceptance or license key args are present. And licenses are successfully persisted, do clean exit.
-          if ARGV.select { |arg| !(arg.include? "--chef-license") }.empty? && !chef_licensing_output.blank?
+          if ARGV.select { |arg| !(arg.include? "--chef-license") }.empty? && !license_keys.blank?
             Inspec::UI.new.exit
           end
         end
@@ -57,6 +57,14 @@ module Inspec
       rescue ChefLicensing::Error => e
         Inspec::Log.error "Something went wrong: #{e}"
         Inspec::UI.new.exit(:usage_error)
+      end
+    end
+
+    def self.configure_chef_licensing
+      ChefLicensing.configure do |config|
+        config.chef_product_name = "Inspec"
+        config.chef_entitlement_id = "3ff52c37-e41f-4f6c-ad4d-365192205968"
+        config.logger = Logger.new($stdout)
       end
     end
 
