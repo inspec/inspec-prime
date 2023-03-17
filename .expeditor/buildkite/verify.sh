@@ -4,8 +4,15 @@ echo "--- dependencies"
 . .expeditor/buildkite/cache_support.sh
 install_cache_deps sudo
 
-echo "--- checking if github cli is able to list secrets"
-gh secret list -a "actions"
+echo "--- checking system pwd"
+pwd
+
+echo "--- checking system env"
+env
+
+echo "--- checking files present in current directory"
+ls -al
+
 
 echo "--- setting up user"
 export LANG=C.UTF-8 LANGUAGE=C.UTF-8
