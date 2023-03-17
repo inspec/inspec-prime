@@ -44,9 +44,6 @@ group :test do
   end
 end
 
-# This is a temporary dependency to allow us to use the un-released chef-licensing gem
-gem "chef_licensing", git: "git@github.com:chef/chef-licensing.git", glob: "components/ruby/*.gemspec"
-
 group :deploy do
   gem "inquirer"
 end
