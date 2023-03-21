@@ -40,7 +40,7 @@ module Inspec
 
     def self.fetch_and_persist_license
       allowed_commands = ["-h", "--help", "help", "-v", "--version", "version"]
-      require "chef_licensing"
+      require "chef-licensing"
       begin
         if (allowed_commands & ARGV.map(&:downcase)).empty? && !ARGV.empty?
           configure_chef_licensing
