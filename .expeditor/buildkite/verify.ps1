@@ -37,6 +37,25 @@ echo "--- fetching Licensing API Keys from vault"
 $Env:CHEF_LICENSE_SERVER_API_KEY=vault kv get -field acceptance secret/inspec/licensing/api-key
 $Env:CHEF_LICENSE_SERVER=vault kv get -field acceptance secret/inspec/licensing/server
 
+echo "--- verifying if environment variables are set"
+
+function CheckIfEnvVarIsSet {
+  param (
+    [string]$envVarName
+  )
+  if (Test-Path "env:\$envVarName") {
+    Write-Host "  ++ $envVarName set successfully"
+  } else {
+    Write-Host "  !! $envVarName is not set."
+  }
+}
+
+$envVarName = "CHEF_LICENSE_SERVER"
+CheckIfEnvVarIsSet -envVarName $envVarName
+
+$envVarName = "CHEF_LICENSE_SERVER_API_KEY"
+CheckIfEnvVarIsSet -envVarName $envVarName
+
 if ($Env:CI_ENABLE_COVERAGE)
 {
     echo "--- fetching Sonar token from vault"
