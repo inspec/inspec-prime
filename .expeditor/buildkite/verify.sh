@@ -30,6 +30,13 @@ unzip -o $VAULT_HOME/vault.zip -d $VAULT_HOME
 echo "--- fetching Licensing API Keys from vault"
 export CHEF_LICENSE_SERVER_API_KEY=$($VAULT_HOME/vault kv get -field acceptance secret/inspec/licensing/api-key)
 export CHEF_LICENSE_SERVER=$($VAULT_HOME/vault kv get -field acceptance secret/inspec/licensing/server)
+if [ -n "${CHEF_LICENSE_SERVER_API_KEY:-}" ]; then
+  echo "  ++ License server API Key set successfully"
+else
+  echo "  !! License server API Key not set - exiting "
+  exit 1
+fi
+
 
 if [ -n "${CI_ENABLE_COVERAGE:-}" ]; then
   echo "--- fetching Sonar token from vault"
