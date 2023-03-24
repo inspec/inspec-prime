@@ -11,7 +11,7 @@ require "inspec/dependencies/cache"
 require "inspec/dist"
 require "inspec/reporters"
 require "inspec/runner_rspec"
-require "chef_licensing"
+require "chef-licensing"
 # spec requirements
 
 module Inspec

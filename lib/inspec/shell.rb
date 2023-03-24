@@ -1,4 +1,4 @@
-require "chef_licensing"
+require "chef-licensing"
 require "inspec/dist"
 
 autoload :Pry, "pry"
