@@ -105,9 +105,7 @@ describe "inputs" do
            # require inspec
           require "inspec"
           require "inspec/runner"
-          require "inspec/base_cli"
-
-          Inspec::BaseCLI.configure_chef_licensing
+          require "inspec/utils/licensing_config"
 
           # inject pretty-printed runner opts
           runner_args = #{options.inspect}
