@@ -66,6 +66,9 @@ if ($Env:CI_ENABLE_COVERAGE)
     $Env:SONAR_TOKEN=vault kv get -field token secret/inspec/sonar
 }
 
+echo "--- install win32-process and windows-pr gems"
+gem install win32-process windows-pr
+
 echo "--- bundle install"
 bundle config set --local without deploy kitchen
 bundle install --jobs=7 --retry=3

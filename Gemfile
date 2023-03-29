@@ -37,8 +37,6 @@ group :test do
   gem "simplecov", "~> 0.21"
   gem "simplecov_json_formatter"
   gem "webmock", "~> 3.0"
-  gem "win32-process", platforms: %i{mswin mingw x64_mingw}
-  gem "windows-pr", platforms: %i{mswin mingw x64_mingw}
 
   if Gem.ruby_version >= Gem::Version.new("3.0.0")
     # html-proofer has a dep on io-event, which is ruby-3 only
