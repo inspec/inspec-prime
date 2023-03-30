@@ -10,4 +10,7 @@ Implements the `inspec license add` CLI command.
 
 ### What This Plugin Does
 
-This plugin helps to list all the licenses for the current user and also adds ability to add a new license.
+This plugin consists has the following subcommands:
+
+1. `add`: helps to add a new license
+2. `list`: helps to list all the licenses for the current user
