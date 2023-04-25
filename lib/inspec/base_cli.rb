@@ -242,7 +242,7 @@ module Inspec
 
         * Trial
           Entitled for unlimited number of targets
-          Entitled for 30 days only 
+          Entitled for 30 days only
           Entitled for commercial use
 
         * Commercial
