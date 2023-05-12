@@ -9,6 +9,7 @@ module Inspec
         return "test-kitchen" if kitchen?(stack)
         return "cli" if run_by_thor?(stack)
         return "audit-cookbook" if audit_cookbook?(stack)
+        return "chef-infra-compliance" if chef_infra_compliance?(stack)
 
         "unknown"
       end
@@ -26,6 +27,11 @@ module Inspec
       def self.audit_cookbook?(stack)
         stack_match(stack: stack, path: "chef/handler", label: "run_report_handlers") &&
           stack_match(stack: stack, path: "handler/audit_report", label: "report")
+      end
+
+      # Verify that we are running in the context of the Chef Infra Compliance
+      def self.chef_infra_compliance?(stack)
+        # TODO: implement this
       end
 
       def self.stack_match(stack: [], label: nil, path: nil)

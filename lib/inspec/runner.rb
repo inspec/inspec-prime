@@ -12,6 +12,7 @@ require "inspec/dist"
 require "inspec/reporters"
 require "inspec/runner_rspec"
 require "chef-licensing"
+require "inspec/utils/telemetry/run_context_probe"
 # spec requirements
 
 module Inspec
@@ -172,7 +173,10 @@ module Inspec
     end
 
     def run(with = nil)
-      ChefLicensing.check_software_entitlement! if Inspec::Dist::EXEC_NAME == "inspec"
+      # do not check for software entitlement when running under kitchen or infra compliance mode
+      unless Inspec::Telemetry::RunContextProbe.guess_run_context == "test-kitchen" || Inspec::Telemetry::RunContextProbe.guess_run_context == "chef-infra-compliance"
+        ChefLicensing.check_software_entitlement! if Inspec::Dist::EXEC_NAME == "inspec"
+      end
       Inspec::Log.debug "Starting run with targets: #{@target_profiles.map(&:to_s)}"
       load
       run_tests(with)
