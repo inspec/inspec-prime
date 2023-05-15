@@ -174,7 +174,7 @@ module Inspec
 
     def run(with = nil)
       # do not check for software entitlement when running under kitchen or infra compliance mode
-      unless Inspec::Telemetry::RunContextProbe.guess_run_context == "test-kitchen" || Inspec::Telemetry::RunContextProbe.guess_run_context == "chef-infra-compliance"
+      unless run_context == "test-kitchen" || run_context == "chef-infra-compliance"
         ChefLicensing.check_software_entitlement! if Inspec::Dist::EXEC_NAME == "inspec"
       end
       Inspec::Log.debug "Starting run with targets: #{@target_profiles.map(&:to_s)}"
@@ -389,6 +389,10 @@ module Inspec
         raise "A rule was registered with #{method_name.inspect}," \
               "which isn't understood and cannot be processed."
       end
+    end
+
+    def run_context
+      @run_context ||= Inspec::Telemetry::RunContextProbe.guess_run_context
     end
   end
 end
