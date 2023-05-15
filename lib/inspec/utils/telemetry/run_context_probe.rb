@@ -6,11 +6,10 @@ module Inspec
     class RunContextProbe
       def self.guess_run_context(stack = nil)
         stack ||= caller_locations
+        return "chef-infra-compliance" if chef_infra_compliance?(stack)
         return "test-kitchen" if kitchen?(stack)
         return "cli" if run_by_thor?(stack)
         return "audit-cookbook" if audit_cookbook?(stack)
-        return "chef-infra-compliance" if chef_infra_compliance?(stack)
-
         "unknown"
       end
 
@@ -31,7 +30,9 @@ module Inspec
 
       # Verify that we are running in the context of the Chef Infra Compliance
       def self.chef_infra_compliance?(stack)
-        # TODO: implement this
+        stack_match(stack: stack, path: "chef/application", label: "run") &&
+          stack_match(stack: stack, path: "chef/application/base", label: "run_application") &&
+          stack_match(stack: stack, path: "chef/application", label: "run_chef_client")
       end
 
       def self.stack_match(stack: [], label: nil, path: nil)
