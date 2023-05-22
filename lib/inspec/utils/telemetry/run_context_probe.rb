@@ -10,6 +10,7 @@ module Inspec
         return "test-kitchen" if kitchen?(stack)
         return "cli" if run_by_thor?(stack)
         return "audit-cookbook" if audit_cookbook?(stack)
+
         "unknown"
       end
 
