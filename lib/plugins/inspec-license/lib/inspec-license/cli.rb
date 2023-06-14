@@ -14,7 +14,7 @@ module InspecPlugins::License
       ChefLicensing.add_license
     rescue ChefLicensing::Error => e
       Inspec::Log.error e.message
-      Inspec::UI::EXIT_LICENSE_GENERATION_DISABLED
+      Inspec::UI::EXIT_LICENSE_GENERATION
     end
   end
 end
