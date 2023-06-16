@@ -49,5 +49,3 @@ Generates an InSpec resource, which can extend the scope of InSpec resources sup
 - `inspec init resource <inspec-resource-name> --layout "resource-pack" --template "plural" --prompt false`
 - `inspec init resource <inspec-resource-name> --layout "core" --template "basic" --prompt false`
 - `inspec init resource <inspec-resource-name> --layout "core" --template "plural" --prompt false`
-
-
