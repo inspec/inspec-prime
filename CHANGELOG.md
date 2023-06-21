@@ -1,9 +1,10 @@
 # Change Log
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
-<!-- latest_release unreleased -->
-## Unreleased
+<!-- latest_release 5.21.42 -->
+## [v5.21.42](https://github.com/inspec/inspec-prime/tree/v5.21.42) (2023-06-21)
 
 #### Merged Pull Requests
+- Bump rack from 2.2.6.2 to 2.2.6.4 in /omnibus [#21](https://github.com/inspec/inspec-prime/pull/21) ([dependabot[bot]](https://github.com/dependabot[bot]))
 - Updates dependabot config to include inspec-6 branch [#60](https://github.com/inspec/inspec-prime/pull/60) ([Vasu1105](https://github.com/Vasu1105))
 <!-- latest_release -->
 
@@ -11,6 +12,7 @@
 ### Changes since 5.21.29 release
 
 #### Merged Pull Requests
+- Bump rack from 2.2.6.2 to 2.2.6.4 in /omnibus [#21](https://github.com/inspec/inspec-prime/pull/21) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 5.21.42 -->
 - Updates dependabot config to include inspec-6 branch [#60](https://github.com/inspec/inspec-prime/pull/60) ([Vasu1105](https://github.com/Vasu1105)) <!-- 5.21.41 -->
 - Revert &quot;adding new private verify, as this will kick off the expeditor bump version&quot; [#6479](https://github.com/inspec/inspec/pull/6479) ([Vasu1105](https://github.com/Vasu1105)) <!-- 5.21.41 -->
 - Bump rack from 2.2.4 to 2.2.6.2 in /omnibus [#6388](https://github.com/inspec/inspec/pull/6388) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 5.21.40 -->
