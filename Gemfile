@@ -51,3 +51,5 @@ end
 source "https://artifactory-internal.ps.chef.co/artifactory/api/gems/omnibus-gems-local/" do
   gem "chef-licensing"
 end
+
+gem "train-core", git: "https://github.com/inspec/train.git", branch: "vasundhara/fix-uuid-for-local-transport-running-inside-docker-container"
