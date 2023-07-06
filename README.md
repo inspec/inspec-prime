@@ -1,3 +1,13 @@
+# What is inspec-prime?
+
+inspec/inspec-prime was a private fork of inspec/inspec used during the development of InSpec 6 to explore integration with the Progress Chef licensing system, via the chef-licensing gem. Because the development of that gem was private, this integration repo had to be private at the time. 
+
+Development entirely occurred merging to the inspec-6 branch. All interesting PRs targeted the inspec-6 branch.
+
+Now that chef-licensing is released, inspec-prime will be archived once its open PRs are resolved.
+
+# -------
+
 # Chef InSpec: Inspect Your Infrastructure
 
 * **Project State: Active**
