@@ -15,6 +15,10 @@ module InspecPlugins::License
     rescue ChefLicensing::LicenseKeyFetcher::LicenseKeyAddNotAllowed => e
       Inspec::Log.error e.message
       Inspec::UI::EXIT_LICENSE_NOT_SET
+    rescue ChefLicensing::Error => e
+      Inspec::Log.error e.message
+      # TODO: Decide the correct exit code for this error, and use it here.
+      Inspec::UI.new.exit(:usage_error)
     end
   end
 end
