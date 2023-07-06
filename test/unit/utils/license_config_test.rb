@@ -3,7 +3,7 @@ require "inspec/utils/licensing_config"
 
 describe "ChefLicensing::Config" do
   it "returns the default chef product name as foo" do
-    expect(ChefLicensing::Config.chef_product_name).must_equal("Inspec")
+    expect(ChefLicensing::Config.chef_product_name).must_equal("InSpec")
   end
 
   it "returns the default chef_entitlement_id" do
