@@ -1,16 +1,17 @@
 # Change Log
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
-<!-- latest_release 6.4.33 -->
-## [v6.4.33](https://github.com/inspec/inspec-prime/tree/v6.4.33) (2023-07-07)
+<!-- latest_release 6.4.34 -->
+## [v6.4.34](https://github.com/inspec/inspec-prime/tree/v6.4.34) (2023-07-07)
 
 #### Merged Pull Requests
-- Adds test for licensing_config [#57](https://github.com/inspec/inspec-prime/pull/57) ([Vasu1105](https://github.com/Vasu1105))
+- CHEF-3895: Prevent Stacktrace in STDOUT by handling Invalid License exception during `license add` [#77](https://github.com/inspec/inspec-prime/pull/77) ([ahasunos](https://github.com/ahasunos))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.18.14 -->
 ### Changes since 5.18.14 release
 
 #### Merged Pull Requests
+- CHEF-3895: Prevent Stacktrace in STDOUT by handling Invalid License exception during `license add` [#77](https://github.com/inspec/inspec-prime/pull/77) ([ahasunos](https://github.com/ahasunos)) <!-- 6.4.34 -->
 - Adds test for licensing_config [#57](https://github.com/inspec/inspec-prime/pull/57) ([Vasu1105](https://github.com/Vasu1105)) <!-- 6.4.33 -->
 - Configure to use `Inspec::Log` in Chef Licensing [#67](https://github.com/inspec/inspec-prime/pull/67) ([ahasunos](https://github.com/ahasunos)) <!-- 6.4.32 -->
 - Crossport public 6549: Drop testing on EOL ruby 2.7, and run linter on Ruby 3.1 [#76](https://github.com/inspec/inspec-prime/pull/76) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 6.4.31 -->
