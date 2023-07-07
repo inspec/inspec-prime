@@ -14,5 +14,5 @@ describe "ChefLicensing::Config" do
     expect(ChefLicensing::Config.chef_executable_name).must_equal("inspec")
   end
 
-  #TODO: Need to add the test for license_server_url.
+  # TODO: Need to add the test for license_server_url.
 end
