@@ -1,16 +1,17 @@
 # Change Log
 <!-- usage documentation: http://expeditor-docs.es.chef.io/configuration/changelog/ -->
-<!-- latest_release 5.21.43 -->
-## [v5.21.43](https://github.com/inspec/inspec-prime/tree/v5.21.43) (2023-07-06)
+<!-- latest_release unreleased -->
+## Unreleased
 
 #### Merged Pull Requests
-- Add explanatory note to README on main on inspec-prime [#79](https://github.com/inspec/inspec-prime/pull/79) ([clintoncwolfe](https://github.com/clintoncwolfe))
+- Disable Dependabot In Preparation for Archiving [#80](https://github.com/inspec/inspec-prime/pull/80) ([clintoncwolfe](https://github.com/clintoncwolfe))
 <!-- latest_release -->
 
 <!-- release_rollup since=5.21.29 -->
 ### Changes since 5.21.29 release
 
 #### Merged Pull Requests
+- Disable Dependabot In Preparation for Archiving [#80](https://github.com/inspec/inspec-prime/pull/80) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 5.21.43 -->
 - Add explanatory note to README on main on inspec-prime [#79](https://github.com/inspec/inspec-prime/pull/79) ([clintoncwolfe](https://github.com/clintoncwolfe)) <!-- 5.21.43 -->
 - Bump rack from 2.2.6.2 to 2.2.6.4 in /omnibus [#21](https://github.com/inspec/inspec-prime/pull/21) ([dependabot[bot]](https://github.com/dependabot[bot])) <!-- 5.21.42 -->
 - Updates dependabot config to include inspec-6 branch [#60](https://github.com/inspec/inspec-prime/pull/60) ([Vasu1105](https://github.com/Vasu1105)) <!-- 5.21.41 -->
